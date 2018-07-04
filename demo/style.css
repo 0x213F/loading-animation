@@ -1,11 +1,25 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
 header > h1.title {
     text-align: center;
+    font-weight: 300;
+    font-size: 3rem;
+}
+
+header > p.subtitle {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
 }
 
 main > canvas.loading-animation {
-  position: relative;
-    left: 25vw;
-    margin-top: 25vw;
-    height: 50vw;
-    width: 50vw;
+    position: relative;
+    left: 15vw;
+    margin-top: 15vw;
+    height: 70vw;
+    width: 70vw;
+    user-select: none;
+    cursor: pointer;
 }

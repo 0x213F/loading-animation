@@ -169,7 +169,7 @@ function drawLines(startPos, endPos, rad) {
     context.beginPath();
     context.moveTo(startPos[0], startPos[1]);
     context.lineTo(endPos[0], endPos[1]);
-    context.lineWidth = 10
+    context.lineWidth = 5
 
     context.strokeStyle = edge_color;
 
