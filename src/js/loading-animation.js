@@ -26,6 +26,7 @@ function LoadingAnimation(canvas_input, config_input, reroll_callback) {
     this.start_time = Date.now();
     this.canvas.style.backgroundColor = secondary;
     setTimeout(this.start.bind(this), this.config.delay_time);
+    resizeCanvas.bind(this)();
     this.reroll_callback();
 }
 
@@ -59,4 +60,5 @@ LoadingAnimation.prototype.reroll = function() {
                        'background_color': secondary     // hex
                    }
     this.reroll_callback();
+    resizeCanvas.bind(this)();
 }

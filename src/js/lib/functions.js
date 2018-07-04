@@ -187,3 +187,8 @@ function generate_random_hex() {
 function getRandomColors() {
   return [generate_random_hex(), generate_random_hex()];
 }
+
+function resizeCanvas() {
+    this.canvas.width = this.canvas.offsetWidth * window.devicePixelRatio;
+    this.canvas.height = this.canvas.offsetHeight * window.devicePixelRatio;
+}
