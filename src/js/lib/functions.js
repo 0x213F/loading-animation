@@ -6,6 +6,14 @@
 */
 
 function drawOutterDots() {
+    var canvas        = this.canvas;
+    var context       = this.context;
+    var numberOfDots  = this.config['number_of_dots'];
+    var numberOfEdges = this.config['number_of_edges'];
+    var timeInterval  = this.config['period'];
+    var padding       = this.config['padding'];
+    var distance      = this.config['distance'];
+    var radius        = this.config['radius'];
 
     // initialize [x, y] coords and length
     var x = 0,
@@ -40,6 +48,14 @@ function drawOutterDots() {
 
 // t - time in ms since the start of the animation
 function drawInnerDots(t) {
+    var canvas        = this.canvas;
+    var context       = this.context;
+    var numberOfDots  = this.config['number_of_dots'];
+    var numberOfEdges = this.config['number_of_edges'];
+    var timeInterval  = this.config['period'];
+    var padding       = this.config['padding'];
+    var distance      = this.config['distance'];
+    var radius        = this.config['radius'];
 
     // tl;dr calculate polor coordinates of all inner points
     //
@@ -110,7 +126,7 @@ function drawInnerDots(t) {
         // Now we draw the line between the outter point and its corresponding
         // inner point. Throw in the point's polar value so we can calculated
         // a color value for the line as well.
-        drawLines([x + xpos2, y + ypos2],
+        drawLines.bind(this)([x + xpos2, y + ypos2],
                   [x + xpos + xdis, y + ypos + ydis],
                   Math.atan( (ydis)/(xdis) ));
 
@@ -128,6 +144,8 @@ function drawInnerDots(t) {
 // startPos - tuple with x and y coords [x, y]
 // endPos   - tuple with x and y coords [x, y]
 function drawLines(startPos, endPos, rad) {
+    var context = this.context;
+    var color = false;
 
     // turn radians into degrees, catch
     rad = rad / Math.PI * 180;
@@ -142,13 +160,13 @@ function drawLines(startPos, endPos, rad) {
     context.beginPath();
     context.moveTo(startPos[0], startPos[1]);
     context.lineTo(endPos[0], endPos[1]);
-    context.lineWidth = 2
+    context.lineWidth = 20
 
     // if the user doesn't want color, make the line solid
     if(color) {
         context.strokeStyle = colors[rad];
     } else {
-        context.strokeStyle = "#FFF";
+        context.strokeStyle = "#EEE";
     }
     context.stroke();
 }

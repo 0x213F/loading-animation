@@ -1,2 +1,0 @@
-resizeCanvas();
-draw();

@@ -1,0 +1,8 @@
+header > h1.title {
+    text-align: center;
+}
+
+main > canvas.loading-animation {
+    height: 100px;
+    width: 100px;
+}
