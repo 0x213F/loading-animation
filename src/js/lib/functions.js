@@ -39,8 +39,8 @@ function drawOutterDots() {
             ypos = Math.sin(i/numberOfDots * Math.PI * 2) * l;
         context.beginPath();
         context.arc(x + xpos, y + ypos, 2.5, 0, 2*Math.PI);
-        context.strokeStyle = "#FFF";
-        context.fillStyle = "#FFF";
+        context.strokeStyle = "#000";
+        context.fillStyle = "#000";
         context.fill();
         context.stroke();
     }
@@ -133,8 +133,8 @@ function drawInnerDots(t) {
         // draw the dot with the same values used above for the drawLines(...) function.
         context.beginPath();
         context.arc(x + xpos + xdis, y + ypos + ydis, 2.5, 0, 2*Math.PI);
-        context.strokeStyle = "#FFF";
-        context.fillStyle = "#FFF";
+        context.strokeStyle = "#000";
+        context.fillStyle = "#000";
         context.fill();
         context.stroke();
     }
@@ -160,13 +160,9 @@ function drawLines(startPos, endPos, rad) {
     context.beginPath();
     context.moveTo(startPos[0], startPos[1]);
     context.lineTo(endPos[0], endPos[1]);
-    context.lineWidth = 20
+    context.lineWidth = 10
 
-    // if the user doesn't want color, make the line solid
-    if(color) {
-        context.strokeStyle = colors[rad];
-    } else {
-        context.strokeStyle = "#EEE";
-    }
+    context.strokeStyle = "#000";
+
     context.stroke();
 }
