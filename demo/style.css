@@ -3,6 +3,9 @@ header > h1.title {
 }
 
 main > canvas.loading-animation {
-    height: 100px;
-    width: 100px;
+  position: relative;
+    left: 25vw;
+    margin-top: 25vw;
+    height: 50vw;
+    width: 50vw;
 }

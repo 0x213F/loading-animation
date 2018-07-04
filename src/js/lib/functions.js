@@ -14,6 +14,9 @@ function drawOutterDots() {
     var padding       = this.config['padding'];
     var distance      = this.config['distance'];
     var radius        = this.config['radius'];
+    var dot_color     = this.config['dot_color'];
+    var edge_color     = this.config['edge_color'];
+    var background_color     = this.config['background_color'];
 
     // initialize [x, y] coords and length
     var x = 0,
@@ -39,8 +42,8 @@ function drawOutterDots() {
             ypos = Math.sin(i/numberOfDots * Math.PI * 2) * l;
         context.beginPath();
         context.arc(x + xpos, y + ypos, 2.5, 0, 2*Math.PI);
-        context.strokeStyle = "#000";
-        context.fillStyle = "#000";
+        context.strokeStyle = dot_color;
+        context.fillStyle = dot_color;
         context.fill();
         context.stroke();
     }
@@ -56,6 +59,9 @@ function drawInnerDots(t) {
     var padding       = this.config['padding'];
     var distance      = this.config['distance'];
     var radius        = this.config['radius'];
+    var dot_color     = this.config['dot_color'];
+    var edge_color     = this.config['edge_color'];
+    var background_color     = this.config['background_color'];
 
     // tl;dr calculate polor coordinates of all inner points
     //
@@ -133,8 +139,8 @@ function drawInnerDots(t) {
         // draw the dot with the same values used above for the drawLines(...) function.
         context.beginPath();
         context.arc(x + xpos + xdis, y + ypos + ydis, 2.5, 0, 2*Math.PI);
-        context.strokeStyle = "#000";
-        context.fillStyle = "#000";
+        context.strokeStyle = dot_color;
+        context.fillStyle = dot_color;
         context.fill();
         context.stroke();
     }
@@ -146,6 +152,9 @@ function drawInnerDots(t) {
 function drawLines(startPos, endPos, rad) {
     var context = this.context;
     var color = false;
+    var dot_color     = this.config['dot_color'];
+    var edge_color     = this.config['edge_color'];
+    var background_color     = this.config['background_color'];
 
     // turn radians into degrees, catch
     rad = rad / Math.PI * 180;
@@ -162,7 +171,19 @@ function drawLines(startPos, endPos, rad) {
     context.lineTo(endPos[0], endPos[1]);
     context.lineWidth = 10
 
-    context.strokeStyle = "#000";
+    context.strokeStyle = edge_color;
 
     context.stroke();
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function generate_random_hex() {
+  return '#' + getRandomInt(0, 16777216).toString(16);
+}
+
+function getRandomColors() {
+  return [generate_random_hex(), generate_random_hex()];
 }
