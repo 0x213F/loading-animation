@@ -35,16 +35,17 @@ LoadingAnimation.prototype.stop = function() {
 }
 
 LoadingAnimation.prototype.reroll = function() {
+    const [primary, secondary] = getRandomColors();
     this.config  = {
                        'delay': 0,
-                       'number_of_dots': getRandomInt(3,6),
+                       'number_of_dots': getRandomInt(3,12),
                        'number_of_edges': getRandomInt(3,6),
-                       'period': getRandomInt(1000, 2000),
+                       'period': getRandomInt(1500, 3500),
                        'padding': 5,                  // percent
                        'distance': 20,                // percent
                        'radius': 15,                  // percent
-                       'dot_color': '#FFF',           // hex
-                       'edge_color': '#FFF',          // hex
-                       'background_color': '#000'     // hex
-                   };
+                       'dot_color': primary,           // hex
+                       'edge_color': primary,          // hex
+                       'background_color': secondary     // hex
+                   }
 }
